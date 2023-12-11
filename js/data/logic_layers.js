@@ -2,17 +2,17 @@
 var boundary = [-77.015162, -12.036262, -77.002051, -12.023104];
 
 // Establecemos la variable para ajustar el nivel de zoom según el dispositivo, el primero es para móviles y el segundo para el resto
-var zoomLevel = (window.innerWidth < 768) ? 12 : 13;
+var zoomLevel = (window.innerWidth < 768) ? 15 : 16;
 
 
 //Establece el centro del mapa y tanbién aplicamos la variale zoom
 var map = L.map('map', {
     center: [(boundary[1] + boundary[3]) / 2, (boundary[0] + boundary[2]) / 2],
-    zoom: 16,
+    zoom: 17,
 });
 
 //Escogemos el mapabase que usaremos (añadir más)
-L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{ }).addTo(map);
+L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}',{ }).addTo(map);
 
 // Botón de restablecer vista del mapa
 var resetButton = document.getElementById('resetButton');
@@ -24,12 +24,41 @@ resetButton.addEventListener('click', function() {
  * lÓGICA DEL MANEJO DE CAPAS EN EL MAPA
  */
 
+var layerAlto = L.geoJSON(alto, {
+  style: function (feature) {
+      return {
+          color: "#ff0000",
+          weight: 1,
+          opacity: 0.95
+      };
+  }
+}).addTo(map);
+
+var layerModerado = L.geoJSON(moderado, {
+  style: function (feature) {
+      return {
+          color: "#ffff00",
+          weight: 1,
+          opacity: 0.95
+      };
+  }
+}).addTo(map);
+
+var layerNinguno = L.geoJSON(ninguno, {
+  style: function (feature) {
+      return {
+          color: "#00ff00",
+          weight: 1,
+          opacity: 0.95
+      };
+  }
+}).addTo(map);
 
 var anotherLayer = L.geoJSON(data, {
   pointToLayer: function (feature, latlng) {
       // Utilizar el marcador predeterminado de Leaflet (un simple círculo)
       var marker = L.circleMarker(latlng, { 
-          radius: 5,  // Ajusta el tamaño del círculo según tus necesidades
+          radius: 6,  // Ajusta el tamaño del círculo según tus necesidades
           fillColor: "skyblue",  // Ajusta el color del círculo según tus necesidades
           color: "#000",  // Ajusta el borde del círculo según tus necesidades
           weight: 1,  // Ajusta el grosor del borde según tus necesidades
