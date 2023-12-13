@@ -28,6 +28,7 @@
   <script src="./js/data/moderado.js"></script>
   <script src="./js/data/ninguno.js"></script>
   <script type="module" src="./js/data/logic_layers.js"></script>
+  <link rel="stylesheet" href="src/leaflet.legend.css">
 </head>
 <body>
   <header>
@@ -36,16 +37,29 @@
         <img src="assets/sencico.png" alt="Logo">
       </div>
       <nav>
-        <h1>Predios Zárate</h1>
+        <h1>ZONAS DE AFECTACIÓN</h1>
       </nav>
     </div>
   </header>
   <main>
     <div class="mapa">
-      <div id="map"></div>
-      <button id="resetButton" class="boton_centrar_mapa">
-        <img class="boton_target" src="../img/target-svgrepo-com.svg" alt="#">
-      </button>
+      <div id="map">
+        <nav class="boton_centrar_mapa">
+          <span class="legendName">Leyenda</span>
+          <h3>Zonas de Afectación</h3>
+          <ul>
+            <li><svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="green" />
+            </svg><p>Bajo</p></li>
+            <li><svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="yellow" />
+            </svg><p>Moderado</p></li>
+            <li><svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="red" />
+            </svg><p>Alto</p></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </main>
 </body>

@@ -32,7 +32,7 @@ header {
   padding: 5px 25px;
   position: fixed;
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 .container img {
   width: 120px;
@@ -55,33 +55,50 @@ main .mapa #map {
 
 
 main .mapa .boton_centrar_mapa {
-  width: 60px;
-  height: 60px;
-  background-color: #3d3d3d;
-  border-radius: 50%;
+  width: 150px;
+  height: auto;
+  background-color: #d5d5d5;
+  border-radius: 5%;
   position: absolute;
   bottom: 70px;
   z-index: 999;
   right: 16px;
   padding: 5px;
   border: none;
-}
-main .mapa .boton_centrar_mapa:active {
-  transition: all 0.2s ease-out;
-  background-color: #200c01;
-}
-
-main .mapa .boton_centrar_mapa .boton_target {
-  width: 100%;
-  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  filter: invert(50%);
 }
-main .mapa .boton_centrar_mapa .boton_target:hover {
-  transition: all 0.2s ease-out;
-  filter: invert(100%);
+main .mapa .boton_centrar_mapa .legendName{
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 15px 0;
+}
+main .mapa .boton_centrar_mapa h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 15px 0;
+
+}
+main .mapa .boton_centrar_mapa ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+}
+main .mapa .boton_centrar_mapa ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 1.5rem;
+}
+main .mapa .boton_centrar_mapa ul li svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+
 }
 
 /* Cositas del leaflet toqueteados */
